@@ -45,3 +45,4 @@ Thumbs.db
 *.csproj
 *.sln
 *.userprefs
+Temp/UnityLockfile
