@@ -62,11 +62,11 @@ public class Taskitem : MonoBehaviour,IPointerClickHandler{
 			taskparent.GetComponent<TaskComponent>().detail.text=this.detail;
 		
 			if (iscomplete == true) {
-				taskparent.GetComponent<TaskComponent> ().iscomplete.GetComponent<FrameAnimator> ().Play();
+				//taskparent.GetComponent<TaskComponent> ().iscomplete.GetComponent<FrameAnimator> ().Play();
 
 			}
 			else if (iscomplete == false) {
-				taskparent.GetComponent<TaskComponent> ().iscomplete.GetComponent<FrameAnimator> ().Stop();
+		//		taskparent.GetComponent<TaskComponent> ().iscomplete.GetComponent<FrameAnimator> ().Stop();
 
 			}
 		}

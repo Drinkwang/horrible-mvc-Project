@@ -7,17 +7,32 @@ public class AppFactory : MonoBehaviour
     public static AppFactory instances;
     public controller c;
     public view v;
+
+
     public RendertoViewcommand render;
     public AddGoodscommand add;
     public Oncesessioncommand once;
     public AddTaskcommand task;
     public RenderTaskcommand rtask;
+    public Colorcommand colorcommand;
+
     public bool isopenpackage = false;
     public Gameobjpool mainpool;
     public GameObject quiver, enemy;
+
+    public TipTaskcommand tip;
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("xxxx");
+            AppFactory.instances.Todo(new Observer("RendertoViewcommand"));
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            AppFactory.instances.Todo(new Observer(Cmd.showTip,"你真牛逼"));
+        }
 
     }
 
@@ -35,7 +50,7 @@ public class AppFactory : MonoBehaviour
 
     void Start()
     {
-   
+
 
         c = new controller();
         v = new view();
@@ -44,7 +59,7 @@ public class AppFactory : MonoBehaviour
         once = new Oncesessioncommand();
         task = new AddTaskcommand();
         rtask = new RenderTaskcommand();
-
+        
         //	Packageview packageview = 
         //THIS IS MORE VIEW BE WRITTER
 
@@ -53,12 +68,15 @@ public class AppFactory : MonoBehaviour
         AdjustView(new taskview());
         AdjustCommand("once", once);
         AdjustCommand("RendertoViewcommand", render);
-        AdjustCommand("AddGoodscommand", add);
+        AdjustCommand(Cmd.addItem, add);
         // later will be add delete task
         AdjustCommand("addtask", task);
         AdjustCommand("rtask", rtask);
-
-
+        //Tip的操作
+        tip = new TipTaskcommand();
+        AdjustCommand(Cmd.showTip, tip);
+        colorcommand = new Colorcommand();
+        AdjustCommand(Cmd.showColor, colorcommand);
     }
 
 
@@ -85,7 +103,10 @@ public class AppFactory : MonoBehaviour
 
 
     }
-
+    public void showColor1()
+    {
+        AppFactory.instances.Todo(new Observer(Cmd.showColor, Color.red));
+    }
 
 
 
@@ -129,7 +150,7 @@ public class AppFactory : MonoBehaviour
     //mainpool.CreatePool("quiverNum", quiver, 2, 10, false);
     public void GetEnemy(Transform t)
     {
-        
+
 
     }
 
