@@ -6,7 +6,11 @@ public class Colorcommand : IC
 {
     public void Todo(Observer t)
     {
-        ColorCompnoent.instance.showColor((Color)t.body);
+
+        if (t.msg == "changeColor") {
+            ColorModel.instances().red = Color.black;
+        }
+        ColorCompnoent.instance.ShowColor(ColorModel.instances().red);
 
     }
 }

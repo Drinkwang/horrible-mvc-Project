@@ -21,18 +21,20 @@ public class AppFactory : MonoBehaviour
     public GameObject quiver, enemy;
 
     public TipTaskcommand tip;
+    public InputFieldcommand input;
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("xxxx");
-            AppFactory.instances.Todo(new Observer("RendertoViewcommand"));
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            AppFactory.instances.Todo(new Observer(Cmd.showTip,"你真牛逼"));
-        }
+    { 
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        Debug.Log("xxxx");
+    //        AppFactory.instances.Todo(new Observer("RendertoViewcommand"));
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.B))
+    //    {
+    //        AppFactory.instances.Todo(new Observer(Cmd.showTip,"你真牛逼"));
+    //    }
 
     }
 
@@ -59,7 +61,7 @@ public class AppFactory : MonoBehaviour
         once = new Oncesessioncommand();
         task = new AddTaskcommand();
         rtask = new RenderTaskcommand();
-        
+        input = new InputFieldcommand();
         //	Packageview packageview = 
         //THIS IS MORE VIEW BE WRITTER
 
@@ -77,6 +79,8 @@ public class AppFactory : MonoBehaviour
         AdjustCommand(Cmd.showTip, tip);
         colorcommand = new Colorcommand();
         AdjustCommand(Cmd.showColor, colorcommand);
+        AdjustCommand(Cmd.ShowImageAndText, input);
+        AdjustCommand(Cmd.changeColor, input);
     }
 
 
@@ -103,10 +107,10 @@ public class AppFactory : MonoBehaviour
 
 
     }
-    public void showColor1()
-    {
-        AppFactory.instances.Todo(new Observer(Cmd.showColor, Color.red));
-    }
+    //public void showColor1()
+    //{
+    //    AppFactory.instances.Todo(new Observer(Cmd.showColor, ColorModel.instances().red));
+    //}
 
 
 

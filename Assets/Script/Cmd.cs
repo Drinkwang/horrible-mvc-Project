@@ -47,6 +47,8 @@ static class Cmd
     public const string showColor = "showColor";
 
     public const string showTip = "showTip";
+    public const string ShowImageAndText = "ShowImageAndText";
+    public const string changeColor = "color";
     //后续有可能的话，操作view和操作ctrl也进行分层
 }
 

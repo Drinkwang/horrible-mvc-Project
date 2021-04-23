@@ -20,14 +20,13 @@ public class ColorCompnoent : MonoBehaviour
         
     }
 
-
-    public void showColor(Color color)
-    {
-        image.color = color;
-    }
     // Update is called once per frame
     void Update()
     {
 
+    }
+    public void ShowColor(Color color)
+    {
+        image.color = color;
     }
 }
