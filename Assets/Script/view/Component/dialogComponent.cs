@@ -57,7 +57,7 @@ public class dialogComponent : MonoBehaviour {
             {
                 dialogue.SetActive(false);
                 this.transform.Find("black").gameObject.SetActive(false);
-                AppFactory.instances.playercontrolpower.enabled = true;
+                //AppFactory.instances.playercontrolpower.enabled = true;
             }
         else {
             print("you need debug");

@@ -36,7 +36,13 @@ public class Baseproxy<T> where T : Basemodel, new()
         if (this.modellist.Count == 0)
             return 0;
         return this.modellist.Max(a => a.id);
+
     }
+
+    //public int Max(T a) {
+
+    //    return a.id;
+    //}
 
     public void update(int id, T model)
     {

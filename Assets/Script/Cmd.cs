@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
- static class Cmd
+static class Cmd
 {
     public const string changeCamera = "changeCamera";
     public const string initCamera = "initCamera";
@@ -12,13 +12,14 @@ using System.Text;
 
 
     //tv
-    public  const string changeTv = "changeTv";
-    public  const string playTv = "playTv";
+    public const string changeTv = "changeTv";
+    public const string playTv = "playTv";
     public const string initTv = "initTv";
     public const string stopTv = "stopTv";
 
 
     //item
+    public const string addItem = "AddGoodscommand";
     public const string showItem = "showitem";
     public const string hideItem = "hideitem";
     public const string consumeItem = "consumeItem";
@@ -43,7 +44,18 @@ using System.Text;
     public const string QuetionShow = "QuetionShow";
     public const string QuetionChangeA = "QuetionChangeA";
     public const string QuetionCHnngeB = "QuetionChangeB";
+    public const string showColor = "showColor";
 
+    public const string showTip = "showTip";
+    public const string ShowImageAndText = "ShowImageAndText";
+    public const string changeColor = "color";
+    public const string ChangeBool = "ChangeBool";
+    public const string ChangeString = "ChangeString";
+    public const string ChangeColorInImage = "ChangeColorInImage";
+    public const string DeleteMinScore = "DeleteMinScore";
+    public const string ShowStudentInformtion = "ShowStudentInformtion";
+    public const string ShowMajorColor = "ShowMajorColor";
+    public const string GetStudentModel = "GetStudentModel";
     //后续有可能的话，操作view和操作ctrl也进行分层
 }
 

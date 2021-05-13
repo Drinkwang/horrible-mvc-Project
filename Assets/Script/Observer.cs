@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Observer  {
 	
-	public string msg;
+	public string msg;//cmd
 	public object body;
 
 	// Use this for initialization
 
 	public Observer(string msg,object body)
-	{this.msg = msg;
+	{
+        this.msg = msg;
 		this.body = body;
 	
 	}
