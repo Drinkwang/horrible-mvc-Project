@@ -10,6 +10,7 @@ public class Colorcommand : IC
         if (t.msg == "changeColor") {
             ColorModel.instances().red = Color.black;
         }
+      //  StudentProxy.instances().FindScoreMax();
         ColorCompnoent.instance.ShowColor(ColorModel.instances().red);
 
     }

@@ -15,7 +15,7 @@ public class InputFieldcommand : IC
 
         if (t.msg == Cmd.changeColor) {
 
-            InputFieldComponent.instance.changseColor((Color)t.body);
+            StudentProxy.instances().FindScoreMax();
         }
     }
     

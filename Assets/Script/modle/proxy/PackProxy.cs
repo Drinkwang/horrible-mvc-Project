@@ -5,6 +5,11 @@ using System;
 using System.Linq;
 public class PackProxy : Baseproxy<Packagemodel>
 {
+
+    //List<String>
+
+ 
+    //Proxy是List
     private static PackProxy instance;
     public static PackProxy instances()
     {
@@ -24,6 +29,7 @@ public class PackProxy : Baseproxy<Packagemodel>
             this.addmodeltolist(new Packagemodel(i));
         }
         //.
+        //Goodproxy 
 
     }
 

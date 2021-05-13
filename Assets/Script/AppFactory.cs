@@ -22,25 +22,32 @@ public class AppFactory : MonoBehaviour
 
     public TipTaskcommand tip;
     public InputFieldcommand input;
+    public BoolCommend boolCommend;
+    public StringCommand stringCommand;
+    public LightImageCommand lightImageCommand;
+    public Studentcommand studentCommand;
     // Update is called once per frame
     void Update()
-    { 
-    //{
-    //    if (Input.GetKeyDown(KeyCode.E))
-    //    {
-    //        Debug.Log("xxxx");
-    //        AppFactory.instances.Todo(new Observer("RendertoViewcommand"));
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.B))
-    //    {
-    //        AppFactory.instances.Todo(new Observer(Cmd.showTip,"你真牛逼"));
-    //    }
+    {
+        //{
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("xxxx");
+            AppFactory.instances.Todo(new Observer("RendertoViewcommand"));
+            AppFactory.instances.Todo(new Observer(Cmd.addItem, 1));
+        }
+        //    if (Input.GetKeyDown(KeyCode.B))
+        //    {
+        //        AppFactory.instances.Todo(new Observer(Cmd.showTip,"你真牛逼"));
+        //    }
 
     }
 
     void Awake()
     {
         instances = this;
+        init(); 
+      //  AppFactory.instances.Todo(new Observer("FindScoreMax"));
     }
 
     public void AdjustCommand(string msg, IC i)
@@ -50,7 +57,7 @@ public class AppFactory : MonoBehaviour
     }
 
 
-    void Start()
+    void init()
     {
 
 
@@ -62,18 +69,24 @@ public class AppFactory : MonoBehaviour
         task = new AddTaskcommand();
         rtask = new RenderTaskcommand();
         input = new InputFieldcommand();
+        boolCommend = new BoolCommend();
+        stringCommand = new StringCommand();
+        lightImageCommand = new LightImageCommand();
+        studentCommand = new Studentcommand();
         //	Packageview packageview = 
         //THIS IS MORE VIEW BE WRITTER
 
         AdjustView(new Packageview());
         AdjustView(new dialogview());
         AdjustView(new taskview());
+        AdjustView(new Studentview());
         AdjustCommand("once", once);
         AdjustCommand("RendertoViewcommand", render);
         AdjustCommand(Cmd.addItem, add);
         // later will be add delete task
         AdjustCommand("addtask", task);
         AdjustCommand("rtask", rtask);
+        
         //Tip的操作
         tip = new TipTaskcommand();
         AdjustCommand(Cmd.showTip, tip);
@@ -81,6 +94,13 @@ public class AppFactory : MonoBehaviour
         AdjustCommand(Cmd.showColor, colorcommand);
         AdjustCommand(Cmd.ShowImageAndText, input);
         AdjustCommand(Cmd.changeColor, input);
+        AdjustCommand(Cmd.ChangeBool, boolCommend);
+        AdjustCommand(Cmd.ChangeString, stringCommand);
+        AdjustCommand(Cmd.ChangeColorInImage, lightImageCommand);
+        AdjustCommand(Cmd.DeleteMinScore, studentCommand);
+        AdjustCommand(Cmd.ShowStudentInformtion, studentCommand);
+        AdjustCommand(Cmd.ShowMajorColor, studentCommand);
+        AdjustCommand(Cmd.GetStudentModel, studentCommand);
     }
 
 

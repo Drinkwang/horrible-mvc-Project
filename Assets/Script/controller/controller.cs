@@ -21,7 +21,7 @@ public class controller  {
 	{
 		if (CommandFlow.ContainsKey (o.msg)) {
 			CommandFlow [o.msg].Todo (o);
-			Debug.Log (CommandFlow[o.msg].ToString ());
+			//Debug.Log (CommandFlow[o.msg].ToString ());
 
 		}
 
