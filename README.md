@@ -1,3 +1,11 @@
+该游戏为一个roguelike游戏，探索随机地图，刷怪，打boss，进入下一关。后期根据进度考虑制作服务端，增加联网内容。
+开发内容分四层、配置内容、战斗系统、ui界面、交互系统..
+这周的任务：将PlayerRoleInfo.xlsx和EnemyInfo.xlsx分别进行解析，以合适的形式存到model模块中。
+其中PlayerRoleInfo.xlsx 为玩家选择英雄单位的属性表，
+由马钰浩来开发，EnemyInfo.xlsx为敌人单位的属性表。由姚建超来开发，开发周期均为2天。
+俊壳负责制作ui和交互的一些策划文案，并划分任务以及改进代码框架。每周为团队所有人包括自己安排适量的任务，并持续跟踪反馈，初期大体完成后，开始制作 战斗系统和一些便捷开发工具，后面将这些逐步交给马钰浩和姚建超打理，便于二人理解和学习，并最终共同制作游戏成品。
+最终游戏成品开源，项目经验为团队所有人共享（均可写入简历）
+
 <p align="center">
     <img width="400px" src="https://github.com/Drinkwang/drinkwang.github.io/blob/master/img/git.png?raw=true">    
 </p>
