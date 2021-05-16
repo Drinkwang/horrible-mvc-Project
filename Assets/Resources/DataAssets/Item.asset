@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95493deff684baf43b6b19dfc637eade, type: 3}
+  m_Name: Item
+  m_EditorClassIdentifier: 
+  playerInfoArray:
+  - RoleId: 1
+    RoleName: "\u82CF\u96EA\u747E"
+    occupation: 0
+    luck: 65
+    speed: 50
+    range: 100
+    SkillIds: 010000000200000003000000
+    maxItemNum: 3
+    limitItemIds: 
+    breathing: 0.08
+    breathingRate: 4.8
+  - RoleId: 2
+    RoleName: "\u767D\u7EAF"
+    occupation: 1
+    luck: 70
+    speed: 45
+    range: 500
+    SkillIds: 040000000500000006000000
+    maxItemNum: 5
+    limitItemIds: 
+    breathing: 0.1
+    breathingRate: 8
+  - RoleId: 3
+    RoleName: "\u5316\u53CC"
+    occupation: 2
+    luck: 80
+    speed: 60
+    range: 300
+    SkillIds: 070000000800000009000000
+    maxItemNum: 6
+    limitItemIds: 
+    breathing: 0.15
+    breathingRate: 7.5
+  - RoleId: 0
+    RoleName: 
+    occupation: 0
+    luck: 0
+    speed: 0
+    range: 0
+    SkillIds: 
+    maxItemNum: 0
+    limitItemIds: 
+    breathing: 0
+    breathingRate: 0
