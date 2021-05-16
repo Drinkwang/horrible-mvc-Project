@@ -1,0 +1,136 @@
+[
+  {
+    "EnemyId": 1,
+    "EnemyName": "无知的路人",
+    "Hp": 10,
+    "Attack": 3,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 0,
+    "Speed": 10,
+    "Skills": [],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 2,
+    "EnemyName": "“正义”卫士",
+    "Hp": 15,
+    "Attack": 3,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 1,
+    "Speed": 10,
+    "Skills": [
+      1
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 3,
+    "EnemyName": "“正义”警官",
+    "Hp": 15,
+    "Attack": 5,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 2,
+    "Speed": 10,
+    "Skills": [
+      2
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 4,
+    "EnemyName": "混沌执行喽啰",
+    "Hp": 20,
+    "Attack": 6,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 3,
+    "Speed": 10,
+    "Skills": [
+      3
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 5,
+    "EnemyName": "混沌执行先锋",
+    "Hp": 20,
+    "Attack": 8,
+    "Range": 300,
+    "AttackFreq": 30,
+    "Def": 4,
+    "Speed": 10,
+    "Skills": [
+      4
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 6,
+    "EnemyName": "混沌执行经理人",
+    "Hp": 25,
+    "Attack": 10,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 5,
+    "Speed": 10,
+    "Skills": [
+      5
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 7,
+    "EnemyName": "混沌执行小丑",
+    "Hp": 25,
+    "Attack": 10,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 6,
+    "Speed": 10,
+    "Skills": [
+      6
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 8,
+    "EnemyName": "混沌执行小头目",
+    "Hp": 30,
+    "Attack": 10,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 7,
+    "Speed": 10,
+    "Skills": [
+      7
+    ],
+    "Levels": 1,
+    "IQ": 50
+  },
+  {
+    "EnemyId": 9,
+    "EnemyName": "混沌执行死士",
+    "Hp": 50,
+    "Attack": 15,
+    "Range": 100,
+    "AttackFreq": 30,
+    "Def": 8,
+    "Speed": 10,
+    "Skills": [
+      8,
+      9
+    ],
+    "Levels": 1,
+    "IQ": 50
+  }
+]
