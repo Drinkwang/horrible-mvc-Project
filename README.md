@@ -1,19 +1,21 @@
-该游戏为一个roguelike游戏，探索随机地图，刷怪，打boss，进入下一关。后期根据进度考虑制作服务端，增加联网内容。
-开发内容分四层、配置内容、战斗系统、ui界面、交互系统..
+
+
+```
+ 该游戏为一个roguelike游戏，探索随机地图，刷怪，打boss，进入下一关。后期根据进度考虑制作服务端，增加联网内容。开发内容分四层、配置内容、战斗系统、ui界面、交互系统..
 这周的任务：将PlayerRoleInfo.xlsx和EnemyInfo.xlsx分别进行解析，以合适的形式存到model模块中。
 其中PlayerRoleInfo.xlsx 为玩家选择英雄单位的属性表，
 由马钰浩来开发，EnemyInfo.xlsx为敌人单位的属性表。由姚建超来开发，开发周期均为2天。
 俊壳负责制作ui和交互的一些策划文案，并划分任务以及改进代码框架。每周为团队所有人包括自己安排适量的任务，并持续跟踪反馈，初期大体完成后，开始制作 战斗系统和一些便捷开发工具，后面将这些逐步交给马钰浩和姚建超打理，便于二人理解和学习，并最终共同制作游戏成品。
 最终游戏成品开源，项目经验为团队所有人共享（均可写入简历）
+```
 
 <p align="center">
     <img width="400px" src="https://github.com/Drinkwang/drinkwang.github.io/blob/master/img/git.png?raw=true">    
 </p>
 
-# 这是我的一个mmo 框架的压缩版
+# 这是我的一个mvc 框架的(已经升级成mvvm)
 
-
-# 框架的内容
+## 框架的内容
 
 ```内容构成
 * controller
@@ -155,6 +157,87 @@ public class GoodsCommand : IC
 可以看出这里实际是操控Model的内容，然后通过Appfactory调用ViewTodo(为了方便理解，这里写的是ViewTodo，实际上可以包装一层，用专门的todo来调用ViewTodo等等)
 
 以上则是这个框架的MV相关的介绍，至于View的内容，实际上是对这个内容粗略的模仿，大家可以自行研究，有任何不懂的或者bug，可以发一个issue给我，多谢
+
+## Mvvm升级内容介绍（新）
+
+### 使用教程
+
+本次升级为model直接调用view提供桥梁，在每次修改具体model实例时都会刷新view（界面），使部分功能开发更为高效..
+
+新升级内容完全兼容之前的内容，之前代码无需修改，仅在适宜自己功能需要时使用。
+
+使用方法，在Model模块的单例模式的return instance前调用`instance.ModelToDoView();`这样每次获取model对象进行操作时候都会对View进行刷新
+
+```c#
+    public static AllTaskproxy instances()
+    {
+        if (instance == null)
+        {
+            instance = new AllTaskproxy();
+
+        }
+        instance.ModelToDoView();
+        return instance;
+
+    }
+```
+
+另外需要在任意unity对象中绑定指定的view，也就是调用
+
+` Proxy.instance.regiestNewComponent（Vmediator）；`
+
+这样桥梁就成功搭建了,此后每次调用Model对象单例时候都会调用View.refresh方法。
+
+### 框架修改（仅配合理解框架）
+
+具体框架修改内容如下：
+
+model模块也就是Proxy的基类当中增加了二个方法，用来刷新“View”模块，也就是具体的Vmediator类
+
+增加方法如下:
+
+```c#
+    public void regiestNewComponent(Vmediator t)
+    {
+        if (IComponentList == null)
+        {
+            IComponentList = new List<Vmediator>();
+        }
+        IComponentList.Add(t);
+    }
+
+    public void removeNewComponent(Vmediator t)
+    {
+        if (IComponentList != null && IComponentList.Count > 0)
+        {
+            IComponentList.Remove(t);
+        }
+
+    }
+```
+
+以及调用单例的方法
+
+```c#
+    public void ModelToDoView()
+    {
+        if (IComponentList != null && IComponentList.Count > 0)
+        {
+            foreach (Vmediator t in IComponentList)
+            {
+
+                t.refresh();
+            }
+        }
+
+    }
+```
+
+
+
+
+
+
 
 ## Authors
 
