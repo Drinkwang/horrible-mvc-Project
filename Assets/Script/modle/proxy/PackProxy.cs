@@ -18,6 +18,7 @@ public class PackProxy : Baseproxy<Packagemodel>
             instance = new PackProxy();
 
         }
+        instance.ModelToDoView();
         return instance;
 
     }

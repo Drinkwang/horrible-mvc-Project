@@ -15,6 +15,7 @@ public class StringProxy : Baseproxy<StringModel>
             instance = new StringProxy();
 
         }
+        instance.ModelToDoView();
         return instance;
 
     }

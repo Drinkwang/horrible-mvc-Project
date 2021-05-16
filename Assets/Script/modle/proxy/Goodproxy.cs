@@ -9,8 +9,9 @@ public class Goodproxy : Baseproxy<Goodsmodel> {
 		if (instance == null) {
 			instance = new Goodproxy ();
 
-		} 
-			return instance;
+		}
+		instance.ModelToDoView();
+		return instance;
 
 	}
 	// Use this for initialization

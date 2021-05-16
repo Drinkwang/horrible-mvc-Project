@@ -5,7 +5,7 @@ using System.Linq;
 public class Baseproxy<T> where T : Basemodel, new()
 {
     protected List<T> modellist;
-
+    protected List<Vmediator> IComponentList;
     public Baseproxy()
     {
         modellist = new List<T>();
@@ -26,6 +26,37 @@ public class Baseproxy<T> where T : Basemodel, new()
 
     }
 
+    public void regiestNewComponent(Vmediator t)
+    {
+        if (IComponentList == null)
+        {
+            IComponentList = new List<Vmediator>();
+        }
+        IComponentList.Add(t);
+    }
+
+    public void removeNewComponent(Vmediator t)
+    {
+        if (IComponentList != null && IComponentList.Count > 0)
+        {
+            IComponentList.Remove(t);
+        }
+
+    }
+
+    public void ModelToDoView()
+    {
+        if (IComponentList != null && IComponentList.Count > 0)
+        {
+            foreach (Vmediator t in IComponentList)
+            {
+
+                t.refresh();
+            }
+        }
+
+    }
+
     public List<T> getmodellist()
     {
         return modellist;
@@ -39,10 +70,6 @@ public class Baseproxy<T> where T : Basemodel, new()
 
     }
 
-    //public int Max(T a) {
-
-    //    return a.id;
-    //}
 
     public void update(int id, T model)
     {

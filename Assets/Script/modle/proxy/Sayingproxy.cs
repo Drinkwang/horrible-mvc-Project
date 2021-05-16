@@ -17,6 +17,7 @@ public class Sayingproxy
             instance = new Sayingproxy();
             instance.saywhat = new Dictionary<string, List<string>>();
         }
+     //   instance.ModelToDoView();
         return instance;
     }
     public void Add(string name, List<string> what)

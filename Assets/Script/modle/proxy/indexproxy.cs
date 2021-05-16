@@ -16,6 +16,7 @@ public class Indexproxy : Baseproxy<IndexModel>
         {
             instance = new Indexproxy();
         }
+        instance.ModelToDoView();
         return instance;
     }
     public IndexModel GetIndexModel(int i)
