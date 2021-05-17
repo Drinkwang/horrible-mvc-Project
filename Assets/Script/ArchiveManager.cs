@@ -24,6 +24,21 @@ public class ArchiveManager : Singleton<ArchiveManager>
         return cached[key];
     }
 
+    public List<T> GetSamplelist<T>()where T:class {
+        var t = ArchiveManager.Instance.Retrieve<T>();
+        var content = t.ToJson();
+        List<T> list = JsonMapper.ToObject<List<T>>(content);
+        return list;
+    }
+
+    public T GetSampleInIndex<T>(int i) where T : class
+    {
+        var t = ArchiveManager.Instance.Retrieve<T>();
+        var content = t.ToJson();
+        List<T> list = JsonMapper.ToObject<List<T>>(content);
+        return list[i];
+    }
+
 
     #region Private Methods
     private string Read(string filename)

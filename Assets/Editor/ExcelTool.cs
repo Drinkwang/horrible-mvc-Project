@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Excel;
 using System.Data;
 using System.IO;
 using System;
@@ -45,11 +44,12 @@ namespace EditorTool
         static DataRowCollection ReadExcel(string filePath,ref int columnNum,ref int rowNum)
         {
             FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-            DataSet result = excelReader.AsDataSet();
-            columnNum = result.Tables[0].Columns.Count;
-            rowNum = result.Tables[0].Rows.Count;
-            return result.Tables[0].Rows;
+            //IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            //DataSet result = excelReader.AsDataSet();
+            //columnNum = result.Tables[0].Columns.Count;
+            //rowNum = result.Tables[0].Rows.Count;
+            //return result.Tables[0].Rows;
+            return null;
         }
     }
 

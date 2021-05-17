@@ -233,8 +233,30 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
     }
 ```
 
+## 数据处理
 
+~~数据处理设想有二套方案，一套走`ScriptObject`，一套走`json`相关，目前将数据处理相关逻辑设计成`json`相关，`scriptObject`相关逻辑仅为学习参考。~~
 
+目前数据文件是excel，但处理走的是json相关的逻辑。需要通过excel2json工具转换成对应`cs类和json`文件
+
+下载链接和资料：https://neil3d.github.io/coding/excel2json.html
+
+将`json文件和cs文件`导入到具体文件夹后，具体数据处理相关使用`ArchiveManager`这个类的单例，使用 `GetSamplelist<T>()`可以获取对应序列化实例对象的链表。直接可以用来使用。
+
+![参考1](https://github.com/Drinkwang/jekyll2/blob/master/assets/cooperation/json1.png?raw=true)
+
+![参考2](https://github.com/Drinkwang/jekyll2/blob/master/assets/cooperation/json2.png?raw=true)
+
+```json
+//源码参考,其他非示例参考代码请自行理解
+    public List<T> GetSamplelist<T>()where T:class {
+        var t = ArchiveManager.Instance.Retrieve<T>();
+        var content = t.ToJson();
+        List<T> list = JsonMapper.ToObject<List<T>>(content);
+        return list;
+    }
+    
+```
 
 
 
