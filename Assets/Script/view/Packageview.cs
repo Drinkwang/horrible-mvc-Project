@@ -24,7 +24,13 @@ public class Packageview : Vmediator {
 			return mlist;
 		}
 	}
-	public override void Todo (Observer x)
+
+    public override void refresh()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Todo (Observer x)
 	{
       
 			List<Packagemodel> packmodelList = (List<Packagemodel>)x.body;

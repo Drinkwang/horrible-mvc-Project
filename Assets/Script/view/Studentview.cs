@@ -31,6 +31,12 @@ public class Studentview : Vmediator
             return mlist;
         }
     }
+
+    public override void refresh()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void Todo(Observer x)
     {
         switch (x.msg)

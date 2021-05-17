@@ -17,7 +17,13 @@ public class taskview:Vmediator {
 			return "taskview";
 		}
 	}
-	public override void Todo (Observer o)
+
+    public override void refresh()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Todo (Observer o)
 	{//Debug.Log ("aaa");
 		List<Taskmodel> taskmodelList = (List<Taskmodel>)o.body;
 		switch (o.msg) {

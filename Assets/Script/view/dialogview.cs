@@ -41,6 +41,12 @@ public class dialogview : Vmediator
 
         }
     }
+
+    public override void refresh()
+    {
+        throw new NotImplementedException();
+    }
+
     public dialogview()
     { D = dialogComponent.instance; }
 
