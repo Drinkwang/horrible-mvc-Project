@@ -1,0 +1,53 @@
+[
+  {
+    "RoleId": 1,
+    "RoleName": "苏雪瑾",
+    "occupation": "女警官",
+    "luck": 65,
+    "speed": 50,
+    "range": 100,
+    "Hp": 60,
+    "Mp": 30,
+    "Def": 3,
+    "Attack": 7,
+    "SkillIds": "1,2,3",
+    "MaxItemNum": 3,
+    "LimitItemIds": "",
+    "Breathing": 0.08,
+    "BreathingRate": 4.8
+  },
+  {
+    "RoleId": 2,
+    "RoleName": "白纯",
+    "occupation": "记者",
+    "luck": 70,
+    "speed": 45,
+    "range": 500,
+    "Hp": 80,
+    "Mp": 10,
+    "Def": 2,
+    "Attack": 8,
+    "SkillIds": "4,5,6",
+    "MaxItemNum": 5,
+    "LimitItemIds": "",
+    "Breathing": 0.1,
+    "BreathingRate": 8
+  },
+  {
+    "RoleId": 3,
+    "RoleName": "化双",
+    "occupation": "魔术师",
+    "luck": 80,
+    "speed": 60,
+    "range": 300,
+    "Hp": 50,
+    "Mp": 50,
+    "Def": 1,
+    "Attack": 0,
+    "SkillIds": "7,8,9",
+    "MaxItemNum": 6,
+    "LimitItemIds": "",
+    "Breathing": 0.15,
+    "BreathingRate": 7.5
+  }
+]

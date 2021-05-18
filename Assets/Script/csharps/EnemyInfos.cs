@@ -8,7 +8,7 @@
 
 public class EnemyInfos
 {
-	public string EnemyId; // 编号
+	public int EnemyId; // 编号
 	public string EnemyName; // 敌人名字
 	public float Hp; // 初始生命值
 	public float Attack; // 攻击力

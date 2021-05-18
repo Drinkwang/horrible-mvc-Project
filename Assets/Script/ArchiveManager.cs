@@ -39,12 +39,11 @@ public class ArchiveManager : Singleton<ArchiveManager>
         return list[i];
     }
 
-
-    #region Private Methods
+    
     private string Read(string filename)
     {
         string path = resFolder + filename;
         return Resources.Load<TextAsset>(path).text;
     }
-    #endregion
+
 }

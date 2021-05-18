@@ -101,6 +101,8 @@ public class AppFactory : MonoBehaviour
         AdjustCommand(Cmd.ShowStudentInformtion, studentCommand);
         AdjustCommand(Cmd.ShowMajorColor, studentCommand);
         AdjustCommand(Cmd.GetStudentModel, studentCommand);
+        List<PlayerRoleInfo> playerInfo =  ArchiveManager.Instance.GetSamplelist<PlayerRoleInfo>();
+        Debug.Log(playerInfo[0].Attack);
     }
 
 
