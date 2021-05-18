@@ -1,7 +1,7 @@
 # mvc 框架的(已经升级成mvvm)
 
 ## 项目目的
-
+...
  该游戏为一个roguelike游戏，探索随机地图，刷怪，打boss，进入下一关。后期根据进度考虑制作服务端，增加联网内容。开发内容分四层、配置内容、战斗系统、ui界面、交互系统..
 这周的任务：将PlayerRoleInfo.xlsx和EnemyInfo.xlsx分别进行解析，以合适的形式存到model模块中。
 其中PlayerRoleInfo.xlsx 为玩家选择英雄单位的属性表，
