@@ -26,13 +26,13 @@ public class AppFactory : MonoBehaviour
     public StringCommand stringCommand;
     public LightImageCommand lightImageCommand;
     public Studentcommand studentCommand;
+    public PlayerCommand playerCommand;
     // Update is called once per frame
     void Update()
     {
         //{
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("xxxx");
             AppFactory.instances.Todo(new Observer("RendertoViewcommand"));
             AppFactory.instances.Todo(new Observer(Cmd.addItem, 1));
         }
@@ -40,6 +40,11 @@ public class AppFactory : MonoBehaviour
         //    {
         //        AppFactory.instances.Todo(new Observer(Cmd.showTip,"你真牛逼"));
         //    }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            instances.Todo(new Observer(Cmd.ImproveAttack,0, 1));
+        }
+      
 
     }
 
@@ -73,6 +78,7 @@ public class AppFactory : MonoBehaviour
         stringCommand = new StringCommand();
         lightImageCommand = new LightImageCommand();
         studentCommand = new Studentcommand();
+        playerCommand = new PlayerCommand();
         //	Packageview packageview = 
         //THIS IS MORE VIEW BE WRITTER
 
@@ -101,8 +107,11 @@ public class AppFactory : MonoBehaviour
         AdjustCommand(Cmd.ShowStudentInformtion, studentCommand);
         AdjustCommand(Cmd.ShowMajorColor, studentCommand);
         AdjustCommand(Cmd.GetStudentModel, studentCommand);
-        List<PlayerRoleInfo> playerInfo =  ArchiveManager.Instance.GetSamplelist<PlayerRoleInfo>();
-        Debug.Log(playerInfo[0].Attack);
+        AdjustCommand(Cmd.ImproveAttack, playerCommand);
+        //List<PlayerRoleInfo> playerInfo =  ArchiveManager.Instance.GetSamplelist<PlayerRoleInfo>();
+        //Log(playerInfo[0].Attack);
+        //PlayerRoleInfo player1 = ArchiveManager.Instance.GetSampleInIndex<PlayerRoleInfo>(0);
+        //Debug.Log(player1.BreathingRate);
     }
 
 

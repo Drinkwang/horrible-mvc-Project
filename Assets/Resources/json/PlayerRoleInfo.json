@@ -10,7 +10,11 @@
     "Mp": 30,
     "Def": 3,
     "Attack": 7,
-    "SkillIds": "1,2,3",
+    "SkillIds": [
+      1,
+      2,
+      3
+    ],
     "MaxItemNum": 3,
     "LimitItemIds": "",
     "Breathing": 0.08,
@@ -27,7 +31,11 @@
     "Mp": 10,
     "Def": 2,
     "Attack": 8,
-    "SkillIds": "4,5,6",
+    "SkillIds": [
+      4,
+      5,
+      6
+    ],
     "MaxItemNum": 5,
     "LimitItemIds": "",
     "Breathing": 0.1,
@@ -44,7 +52,11 @@
     "Mp": 50,
     "Def": 1,
     "Attack": 0,
-    "SkillIds": "7,8,9",
+    "SkillIds": [
+      7,
+      8,
+      9
+    ],
     "MaxItemNum": 6,
     "LimitItemIds": "",
     "Breathing": 0.15,

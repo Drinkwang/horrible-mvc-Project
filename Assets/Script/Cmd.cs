@@ -57,5 +57,7 @@ static class Cmd
     public const string ShowMajorColor = "ShowMajorColor";
     public const string GetStudentModel = "GetStudentModel";
     //后续有可能的话，操作view和操作ctrl也进行分层
+
+    public const string ImproveAttack = "ImproveAttack";
 }
 

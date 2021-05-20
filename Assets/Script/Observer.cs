@@ -6,10 +6,17 @@ public class Observer  {
 	
 	public string msg;//cmd
 	public object body;
+    public object data;
+    // Use this for initialization
 
-	// Use this for initialization
+    public Observer(string msg, object body,object data)
+    {
+        this.msg = msg;
+        this.body = body;
+        this.data = data;
 
-	public Observer(string msg,object body)
+    }
+    public Observer(string msg,object body)
 	{
         this.msg = msg;
 		this.body = body;
