@@ -1,13 +1,7 @@
 # mvc 框架的(已经升级成mvvm)
 
-## 项目目的
-...
- 该游戏为一个roguelike游戏，探索随机地图，刷怪，打boss，进入下一关。后期根据进度考虑制作服务端，增加联网内容。开发内容分四层、配置内容、战斗系统、ui界面、交互系统..
-这周的任务：将PlayerRoleInfo.xlsx和EnemyInfo.xlsx分别进行解析，以合适的形式存到model模块中。
-其中PlayerRoleInfo.xlsx 为玩家选择英雄单位的属性表，
-由马钰浩来开发，EnemyInfo.xlsx为敌人单位的属性表。由姚建超来开发，开发周期均为2天。
-俊壳负责制作ui和交互的一些策划文案，并划分任务以及改进代码框架。每周为团队所有人包括自己安排适量的任务，并持续跟踪反馈，初期大体完成后，开始制作 战斗系统和一些便捷开发工具，后面将这些逐步交给马钰浩和姚建超打理，便于二人理解和学习，并最终共同制作游戏成品。
-最终游戏成品开源，项目经验为团队所有人共享（均可写入简历）
+## 框架设计目的
+ 该框架最初是制作Mmo所做，后来又应用到个人Horrible game（恐怖fps游戏所作）项目，以及最近与好有协助开发roguelike game，再此基础不断改进而成。框架适合模块化开发，协同工作，此后也会不断改进提升。
 
 <p align="center">
     <img width="400px" src="https://github.com/Drinkwang/drinkwang.github.io/blob/master/img/git.png?raw=true">    
@@ -63,7 +57,7 @@ public class controller  {
 
 
 
-首先用Dictionry[字典]的形式定义一个命令流` CommandFlow`,然后我们需要二个方法，一个是在命令流里添加新的命令，也就是`adjustCommand` 这个方法实现很简单，就是简单判断是否曾包含命令，如果没有，则将其添加到命令流` CommandFlow`当中，其实这个方法也可以不用字典进行实现，比如说用List<T>或者数组也是可以的，但是字典是用Hash实现的，Hash碰撞的时间复杂度是o(1),当然用字典是最好的啦
+首先用Dictionry[字典]的形式定义一个命令流` CommandFlow`,然后我们需要二个方法，一个是在命令流里添加新的命令，也就是`adjustCommand` ，就是判断是否曾包含命令，如果没有，则将其添加到命令流` CommandFlow`当中
 
 剩下一个方法则是执行命令，从命令流中找到一个匹配的数据，我们包装一个`Observer`对象如下
 
@@ -115,7 +109,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodsCommand : IC
+public class AddGoodscommand : IC
 {
     PackProxy packproxy = PackProxy.instances();
     Goodproxy goodproxy = Goodproxy.instances();
@@ -123,39 +117,36 @@ public class GoodsCommand : IC
 
     public void Todo(Observer io)
     {
-		if(io.msg=cmd.AddGoodCommand){
-	        int id = 1;
-   	    	Packagemodel model = null;
-        	if (!int.TryParse(io.body.ToString(), out id))
-        	{
-            	return;
-        	}
-        	if (packproxy.TryGeGoodtModel(id, out model))
-        	{
-            	++model.count;
-            	packproxy.update(id, model);
-        	}
-        	else if (packproxy.isfull())
-        	{
-            	return;
-        	}
-        	else
-        	{
-            	model = packproxy.getback();
-            	model.goodid = id;
-            	model.count = 1;
+        int id = 1;
+        Packagemodel model = null;
+        if (!int.TryParse(io.body.ToString(), out id))
+        {
+            return;
+        }
+        if (packproxy.TryGeGoodtModel(id, out model))
+        {
+            ++model.count;
+            packproxy.update(id, model);
+        }
+        else if (packproxy.isfull())
+        {
+            return;
+        }
+        else
+        {
+            model = packproxy.getback();
+            model.goodid = id;
+            model.count = 1;
 
-        	}
-        	AppFactory.instances.ViewTodo(new Observer("RendertoViewcommand", "main"));
+        }
+        AppFactory.instances.Todo(new Observer("RendertoViewcommand", "main"));
 
-		}else if(io.msg=UseGoodCommand/*xxx是其他命令名*/){
 
-			//xxxxxx具体实现省略
-		}
     }
 }
+
 ```
-可以看出这里实际是操控Model的内容，然后通过Appfactory调用ViewTodo(为了方便理解，这里写的是ViewTodo，实际上可以包装一层，用专门的todo来调用ViewTodo等等)
+可以看出这里实际是操控Model的内容，然后通过Appfactory调用ViewTodo//(为了方便理解，这里写的是ViewTodo，实际上可以包装一层，用专门的todo来调用ViewTodo等等)
 
 以上则是这个框架的MV相关的介绍，至于View的内容，实际上是对这个内容粗略的模仿，大家可以自行研究，有任何不懂的或者bug，可以发一个issue给我，多谢
 
