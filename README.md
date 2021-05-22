@@ -239,7 +239,7 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
 
 ![参考2](https://github.com/Drinkwang/jekyll2/blob/master/assets/cooperation/json2.png?raw=true)
 
-```json
+```c#
 //源码参考,其他非示例参考代码请自行理解
     public List<T> GetSamplelist<T>()where T:class {
         var t = ArchiveManager.Instance.Retrieve<T>();
