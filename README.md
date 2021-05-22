@@ -81,7 +81,8 @@ public class Observer  {
 	// Use this for initialization
 
 	public Observer(string msg,object body)
-	{this.msg = msg;
+	{
+        this.msg = msg;
 		this.body = body;
 	
 	}
