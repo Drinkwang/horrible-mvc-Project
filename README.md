@@ -76,7 +76,7 @@ public class Observer  {
 
 	public Observer(string msg,object body)
 	{
-        this.msg = msg;
+        	this.msg = msg;
 		this.body = body;
 	
 	}
