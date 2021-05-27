@@ -20,10 +20,51 @@
 
 ```
 ### 使用教程
-待补充
+该框架是一个MVC框架，所以关键在于MVC三个模块之间的互相调用
+* M（数据层）
+* V（视图层）
+* C（控制层）
+#### Controller模块调用Model模块
+使用首先我们需要注册Controller类，需要在Appfactory类中创建新的Controller类
+`public AddGoodscommand add;//添加物品的命令`
+然后我们需要在appfactory`init`方法中，将命令给`实例化`,并将其绑定对应的字符常量，对应`Cmd`类里的字段
+```c#   
+   void init()
+   {
+      add = new AddGoodscommand(); //实例化add方法
+      AdjustCommand(Cmd.addItem, add);//绑定字符常量，Cmd.addItem="AddGoodscommand"
+   }
+```
+再次之后，我们只需要对应的`AppFactory.instances.Todo(new Observer(Cmd.addItem, "大宝剑"));//大宝剑是参数，可省略`,就可以进入`AddGoodscommand`类中调用Todo方法啦。
+所以我们来看看AddGoodscommand类的写法
+```c#   
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AddGoodscommand : IC
+{
+    PackProxy packproxy = PackProxy.instances();//Model对象，指代背包数据
 
 
-
+    public void Todo(Observer io)
+    {
+    ...
+    }
+}
+```
+首先它需要继承`IC`这个类，并且实现`Todo`的抽象方法，而我们的`Todo`方法也就是具体功能类，这里用来写我们需要开发的功能，我们可以这么写
+```
+    public void Todo(Observer io)
+    {
+    if(io.msg=="Cmd.addItem")
+    {
+    //为PackProxy增加一个新物品
+    }
+    }
+```
+这样就成功实现Controller调用Model了
+...待续
 ## Mvvm升级内容介绍（新）
 
 ### 使用教程
