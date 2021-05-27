@@ -90,6 +90,7 @@ public class AddGoodscommand : IC
 </br>
 2.view模块写法
 View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
+
 ```c#   
 
     void init()
@@ -97,10 +98,9 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
        AdjustView(new Packageview());
        ...
     }
-
 ```
 
-这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的方法
+> 这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的方法
 
 
 ```c#
