@@ -12,11 +12,11 @@
 ## 框架的内容
 
 ```内容构成
-* controller
-* model
-* view
-* appfactory
-* ovserver
+* controller(包括继承IC接口的command类，以及管理所有command的controller类)
+* model(数据类，主要指代Model和Proxy类)
+* view(包括继承Vmediator接口的XXXView类，以及管理所有XXXView的view类)
+* appfactory(工厂类，用来初始化mvc，也是mvc的入口)
+* ovserver(监听器类，用来传参)
 
 ```
 ### 使用教程
@@ -37,12 +37,12 @@ public AddGoodscommand add;//添加物品的命令
       AdjustCommand(Cmd.addItem, add);//绑定字符常量，Cmd.addItem="AddGoodscommand"
    }
 ```
-再次之后，我们只需要对应的
+再次之后，我们只需要在任意位置调用
 ```c# 
 AppFactory.instances.Todo(new Observer(Cmd.addItem, "大宝剑"));//大宝剑是参数，可省略
 ```
 就可以进入`AddGoodscommand`类中调用Todo方法啦。
-所以我们来看看AddGoodscommand类的写法
+所以我们就来看看AddGoodscommand类的写法
 首先它需要继承`IC`这个类，并且实现`Todo`的抽象方法，而我们的`Todo`方法也就是具体功能类，这里用来写我们需要开发的功能，我们可以这么写
 ```c#   
 using System.Collections;
@@ -58,7 +58,7 @@ public class AddGoodscommand : IC
     {
        if(io.msg=="Cmd.addItem")
        {
-          //为PackProxy增加一个新物品
+          //此处代码为PackProxy增加一个新物品，具体可以参考源代码的内容
        }
     }
 }
@@ -68,11 +68,67 @@ public class AddGoodscommand : IC
 
 </br>
 
-...待续
+#### Controller模块调用Coponent对象 C --> V 
+1.此处有二种方法，一个是在上面写的Controller的Todo方法中直接调用具体组件对象的实例
+
+```c#   
+
+    public void Todo(Observer o)
+    {
+       packageComponent.instante.showPackage((List<Packagemodel> model)o.body)
+    }
+}
+```
+但是这样处理解耦合不够彻底，新入门的开发者可以这样学习和使用。但最好的办法是调用View模块，来实现mvvm，View模块是一个类似于command对象的实现
+首先还是需要在`Appfactory`对象的`init`方法进行View绑定
+```c#   
+
+    void init()
+    {
+       AdjustView(new Packageview());
+       ...
+    }
+
+```
+这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的方法
+```c#   
+
+    public class Packageview : Vmediator {
+	   packageComponent pack;
+	   // Use this for initialization
+	   public Packageview()
+	   {
+       pack=packageComponent.instante;
+	   }
+
+	   public override string name {
+		     get {
+			       return "Packageview";
+		     }
+	   }
+    
+	   public override List<string> msglist {
+		     get {
+			       List<string> mlist = new List<string> ();
+			       mlist.Add ("show");
+			       return mlist;
+		     }
+	   }
+
+
+    public override void Todo (Observer x)
+	   {
+   
+	   }
+
+}
+```
+
 
 </br>
-
-
+#### Model对象
+待续..
+</br>
 ### Mvvm升级内容介绍（新）
 > 实际上是 M --> V的方法 
 #### 使用教程
