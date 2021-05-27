@@ -78,7 +78,7 @@ public class AddGoodscommand : IC
        packageComponent.instante.showPackage((List<Packagemodel> model)o.body)
     }
 ```
-但是这样处理解耦合不够彻底，新入门的开发者可以这样学习和使用。但最好的办法是在`Todo`方法里调用View模块，来实现mvvm。
+> 但是这样处理解耦合不够彻底，新入门的开发者可以这样学习和使用。但最好的办法是在`Todo`方法里调用View模块，来实现mvvm。
 ```c#   
 
     public void Todo(Observer o)
@@ -90,7 +90,7 @@ public class AddGoodscommand : IC
 </br>
 2.view模块写法
 </br>
-View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
+> View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
 </br>
 ```c#   
 
