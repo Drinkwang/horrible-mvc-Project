@@ -29,7 +29,7 @@
 ```c#  
 public AddGoodscommand add;//添加物品的命令
 ```
-然后我们需要在appfactory`init`方法中，将命令给`实例化`,并将其绑定对应的字符常量，对应`Cmd`类里的字段
+然后我们需要在`Appfactory`的`init`方法中，将命令给`实例化`,并将其绑定对应的字符常量，对应`Cmd`类里的字段
 ```c#   
    void init()
    {
@@ -66,6 +66,7 @@ public class AddGoodscommand : IC
 
 这样就成功实现Controller调用Model了
 
+</br>
 
 ...待续
 
@@ -73,7 +74,7 @@ public class AddGoodscommand : IC
 
 
 ### Mvvm升级内容介绍（新）
-实际上是 M --> V的方法 
+> 实际上是 M --> V的方法 
 #### 使用教程
 
 本次升级为model直接调用view提供桥梁，在每次修改具体model实例时都会刷新view（界面），使部分功能开发更为高效..
@@ -103,7 +104,7 @@ public class AddGoodscommand : IC
 这样桥梁就成功搭建了,此后每次调用Model对象单例时候都会调用View.refresh方法。
 
 
-### 框架修改（仅配合理解框架）
+#### 框架修改（仅配合理解框架）
 
 具体框架修改内容如下：
 
@@ -150,6 +151,7 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
 
 
 
+</br>
 
 
 ### 数据处理
@@ -175,6 +177,7 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
     
 ```
 
+</br>
 
 
 
