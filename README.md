@@ -99,9 +99,11 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
     }
 
 ```
-这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的方法
-```c#   
 
+这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的方法
+
+
+```c#
     public class Packageview : Vmediator {
 	packageComponent pack;
 	// Use this for initialization
@@ -127,7 +129,9 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
 
      }
 ```
+
 最后当然不要忘了我们的`todo`方法
+
 ```c#   
 	packageComponent pack;
         public override void Todo (Observer o)
@@ -137,6 +141,7 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
 	   }
 	}
 ```
+
 这样做之后，就能通过  `AppFactory.instances.ViewTodo`进行调用
 </br>
 </br>
