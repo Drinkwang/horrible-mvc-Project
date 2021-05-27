@@ -69,7 +69,7 @@ public class AddGoodscommand : IC
 
 ...待续
 
-
+</br>
 
 
 ### Mvvm升级内容介绍（新）
@@ -153,8 +153,6 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
 
 
 ### 数据处理
-
-~~数据处理设想有二套方案，一套走`ScriptObject`，一套走`json`相关，目前将数据处理相关逻辑设计成`json`相关，`scriptObject`相关逻辑仅为学习参考。~~
 
 目前数据文件是excel，但处理走的是json相关的逻辑。需要通过excel2json工具转换成对应`cs类和json`文件
 
