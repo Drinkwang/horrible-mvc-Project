@@ -106,7 +106,6 @@ public class AddGoodscommand : IC
 
 ```c#
     public class Packageview : Vmediator {
-	packageComponent pack;
 	// Use this for initialization
 	public Packageview()
 	{
