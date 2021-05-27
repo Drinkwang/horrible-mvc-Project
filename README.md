@@ -43,6 +43,7 @@ AppFactory.instances.Todo(new Observer(Cmd.addItem, "大宝剑"));//大宝剑是
 ```
 就可以进入`AddGoodscommand`类中调用Todo方法啦。
 所以我们来看看AddGoodscommand类的写法
+首先它需要继承`IC`这个类，并且实现`Todo`的抽象方法，而我们的`Todo`方法也就是具体功能类，这里用来写我们需要开发的功能，我们可以这么写
 ```c#   
 using System.Collections;
 using System.Collections.Generic;
@@ -55,20 +56,14 @@ public class AddGoodscommand : IC
 
     public void Todo(Observer io)
     {
-    ...
+       if(io.msg=="Cmd.addItem")
+       {
+          //为PackProxy增加一个新物品
+       }
     }
 }
 ```
-首先它需要继承`IC`这个类，并且实现`Todo`的抽象方法，而我们的`Todo`方法也就是具体功能类，这里用来写我们需要开发的功能，我们可以这么写
-```
-    public void Todo(Observer io)
-    {
-    if(io.msg=="Cmd.addItem")
-    {
-    //为PackProxy增加一个新物品
-    }
-    }
-```
+
 这样就成功实现Controller调用Model了
 ...待续
 ## Mvvm升级内容介绍（新）
