@@ -27,7 +27,7 @@
 #### Controller模块调用Model模块 C --> M 
 使用首先我们需要注册Controller类，需要在Appfactory类中创建新的Controller类
 ```c#  
-public AddGoodscommand add;//添加物品的命令
+   public AddGoodscommand add;//添加物品的命令
 ```
 然后我们需要在`Appfactory`的`init`方法中，将命令给`实例化`,并将其绑定对应的字符常量，对应`Cmd`类里的字段
 ```c#   
@@ -39,7 +39,7 @@ public AddGoodscommand add;//添加物品的命令
 ```
 再次之后，我们只需要在任意位置调用
 ```c# 
-AppFactory.instances.Todo(new Observer(Cmd.addItem, "大宝剑"));//大宝剑是参数，可省略
+   AppFactory.instances.Todo(new Observer(Cmd.addItem, "大宝剑"));//大宝剑是参数，可省略
 ```
 就可以进入`AddGoodscommand`类中调用Todo方法啦。
 所以我们就来看看AddGoodscommand类的写法
@@ -94,34 +94,34 @@ public class AddGoodscommand : IC
 ```c#   
 
     public class Packageview : Vmediator {
-	   packageComponent pack;
-	   // Use this for initialization
-	   public Packageview()
-	   {
-       pack=packageComponent.instante;
-	   }
+	packageComponent pack;
+	// Use this for initialization
+	public Packageview()
+	{
+           pack=packageComponent.instante;
+	}
 
-	   public override string name {
-		     get {
-			       return "Packageview";
-		     }
+	public override string name {
+	   get {
+	      return "Packageview";
 	   }
+	}
     
-	   public override List<string> msglist {
-		     get {
-			       List<string> mlist = new List<string> ();
-			       mlist.Add ("show");
-			       return mlist;
-		     }
-	   }
+	public override List<string> msglist {
+	   get {
+	      List<string> mlist = new List<string> ();
+	      mlist.Add ("show");
+	      return mlist;
+           }
+	}
 
 
-    public override void Todo (Observer x)
-	   {
+        public override void Todo (Observer x)
+	{
    
-	   }
+	}
 
-}
+     }
 ```
 
 
