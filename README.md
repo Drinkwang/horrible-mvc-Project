@@ -100,7 +100,7 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
     }
 ```
 
-> 这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的方法
+> 这样就绑定好了。接下来我们来看Packageview的实现，首先我们需要重写`Vmediator` 的抽象字段和方法，我们要在name的返回值给出View的名字，并在msglist中添加可以使用的`命令字符`
 
 
 ```c#
@@ -146,7 +146,7 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
 </br>
 </br>
 #### Model对象
-待续..
+Model对象只是一个单例的数据对象，可以由自己完全编写，当然也可以使用该框架提供的Proxy类和Model类进行便捷处理，这方面的内容待续..
 </br>
 ### Mvvm升级内容介绍（新）
 > 实际上是 M --> V的方法 
@@ -259,7 +259,7 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
 ## Authors
 
 * **Drinker·wang** - [Github](https://github.com/Drinkwang)
-<br>![B站 Follow](https://space.bilibili.com/13061595)  
+<br>[B站 Follow](https://space.bilibili.com/13061595)  
 
 ## License
 
