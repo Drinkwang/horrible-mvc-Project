@@ -80,6 +80,15 @@ public class AddGoodscommand : IC
 }
 ```
 但是这样处理解耦合不够彻底，新入门的开发者可以这样学习和使用。但最好的办法是在`Todo`方法里调用View模块，来实现mvvm。
+```c#   
+
+    public void Todo(Observer o)
+    {
+        AppFactory.instances.ViewTodo(new Observer(Cmd.show,(List<Packagemodel> model)o.body));//具体为什么这么写可以调用view模块，请接着把2.的内容看完
+    }
+}
+```
+</br>
 2.view模块写法
 View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
 ```c#   
@@ -111,21 +120,26 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
 	public override List<string> msglist {
 	   get {
 	      List<string> mlist = new List<string> ();
-	      mlist.Add ("show");
+	      mlist.Add ("show");//这里也可以用Cmd.show来替代
 	      return mlist;
            }
 	}
 
 
-        public override void Todo (Observer x)
-	{
-   
-	}
-
      }
 ```
-
-
+最后当然不要忘了我们的`todo`方法
+```c#   
+	packageComponent pack;
+        public override void Todo (Observer o)
+	{
+	   if(o.msg=="show"){	
+   	      pack.show((List<Packagemodel> model)o.body)
+	   }
+	}
+```
+这样做之后，就能通过  `AppFactory.instances.ViewTodo`进行调用
+</br>
 </br>
 #### Model对象
 待续..
@@ -156,7 +170,7 @@ View模块是一个类似于command对象的实现，首先还是需要在`Appfa
 
 另外需要在任意unity对象中绑定指定的view，也就是调用
 
-` Proxy.instance.regiestNewComponent（Vmediator）；`
+` Proxy.instance.regiestNewComponent（Vmediator）;`
 
 这样桥梁就成功搭建了,此后每次调用Model对象单例时候都会调用View.refresh方法。
 
