@@ -65,7 +65,13 @@ public class AddGoodscommand : IC
 ```
 
 这样就成功实现Controller调用Model了
+
+
 ...待续
+
+
+
+
 ### Mvvm升级内容介绍（新）
 实际上是 M --> V的方法 
 #### 使用教程
@@ -95,6 +101,7 @@ public class AddGoodscommand : IC
 ` Proxy.instance.regiestNewComponent（Vmediator）；`
 
 这样桥梁就成功搭建了,此后每次调用Model对象单例时候都会调用View.refresh方法。
+
 
 ### 框架修改（仅配合理解框架）
 
@@ -140,6 +147,10 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
 
     }
 ```
+
+
+
+
 
 ### 数据处理
 
