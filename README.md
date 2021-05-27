@@ -89,7 +89,7 @@ public class AddGoodscommand : IC
 ```
 </br>
 2.view模块写法
-View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
+> View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
 
 ```c#   
 
