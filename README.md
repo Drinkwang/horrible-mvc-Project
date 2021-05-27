@@ -66,9 +66,9 @@ public class AddGoodscommand : IC
 
 这样就成功实现Controller调用Model了
 ...待续
-## Mvvm升级内容介绍（新）
-
-### 使用教程
+### Mvvm升级内容介绍（新）
+实际上是 M --> V的方法 
+#### 使用教程
 
 本次升级为model直接调用view提供桥梁，在每次修改具体model实例时都会刷新view（界面），使部分功能开发更为高效..
 
@@ -141,7 +141,7 @@ model模块也就是Proxy的基类当中增加了二个方法，用来刷新“V
     }
 ```
 
-## 数据处理
+### 数据处理
 
 ~~数据处理设想有二套方案，一套走`ScriptObject`，一套走`json`相关，目前将数据处理相关逻辑设计成`json`相关，`scriptObject`相关逻辑仅为学习参考。~~
 
