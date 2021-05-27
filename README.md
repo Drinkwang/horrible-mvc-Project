@@ -24,7 +24,7 @@
 * M（数据层）
 * V（视图层）
 * C（控制层）
-#### Controller模块调用Model模块 C --> M 
+#### 1.Controller模块调用Model模块 C --> M 
 使用首先我们需要注册Controller类，需要在Appfactory类中创建新的Controller类
 ```c#  
    public AddGoodscommand add;//添加物品的命令
@@ -41,8 +41,8 @@
 ```c# 
    AppFactory.instances.Todo(new Observer(Cmd.addItem, "大宝剑"));//大宝剑是参数，可省略
 ```
-就可以进入`AddGoodscommand`类中调用Todo方法啦。
-所以我们就来看看AddGoodscommand类的写法
+就可以进入`AddGoodscommand`类的`Todo`方法啦。
+所以我们就来看看`AddGoodscommand`类的写法
 首先它需要继承`IC`这个类，并且实现`Todo`的抽象方法，而我们的`Todo`方法也就是具体功能类，这里用来写我们需要开发的功能，我们可以这么写
 ```c#   
 using System.Collections;
