@@ -79,8 +79,9 @@ public class AddGoodscommand : IC
     }
 }
 ```
-但是这样处理解耦合不够彻底，新入门的开发者可以这样学习和使用。但最好的办法是调用View模块，来实现mvvm，View模块是一个类似于command对象的实现
-首先还是需要在`Appfactory`对象的`init`方法进行View绑定
+但是这样处理解耦合不够彻底，新入门的开发者可以这样学习和使用。但最好的办法是在`Todo`方法里调用View模块，来实现mvvm。
+2.view模块写法
+View模块是一个类似于command对象的实现，首先还是需要在`Appfactory`对象的`init`方法进行View绑定
 ```c#   
 
     void init()
