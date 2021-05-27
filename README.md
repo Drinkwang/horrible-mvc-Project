@@ -24,7 +24,7 @@
 * M（数据层）
 * V（视图层）
 * C（控制层）
-#### Controller模块调用Model模块
+#### Controller模块调用Model模块 `C $\rightarrow$ M
 使用首先我们需要注册Controller类，需要在Appfactory类中创建新的Controller类
 ```c#  
 public AddGoodscommand add;//添加物品的命令
